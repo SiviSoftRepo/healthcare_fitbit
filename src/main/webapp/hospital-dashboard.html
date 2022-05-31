@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HealthDX</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-jvectormap-2.0.5.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    
+
+</head>
+<body class="" style="background-image: linear-gradient(to right, #30305e, #48487b, transparent);">
+	<!-- [ Pre-loader ] start -->
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div>
+	<!-- [ Pre-loader ] End -->
+	<!-- [ navigation menu ] start -->
+	<nav class="pcoded-navbar menu-light ">
+		<div class="navbar-wrapper  ">
+			<div class="navbar-content scroll-div " >
+				
+				<div class="">
+					<div class="main-menu-header">
+						<img class="img-radius" src="assets/images/user/avatar-2.png" alt="User-Profile-Image">
+						<div class="user-details">
+							<div id="more-details">Balaji Modhagala &nbsp;<i class="fa fa-caret-down"></i></div>
+						</div>
+					</div>
+					<div class="collapse" id="nav-user-link">
+						<ul class="list-inline">
+							<li class="list-inline-item"><a href="user-profile.html" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="feather icon-mail" data-toggle="tooltip" title="Messages"></i><small class="badge badge-pill badge-primary">5</small></a></li>
+							<li class="list-inline-item"><a href="auth-signin.html" data-toggle="tooltip" title="Logout" class="text-danger"><i class="feather icon-power"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<ul class="nav pcoded-inner-navbar ">
+					<li class="nav-item pcoded-menu-caption">
+						<label>Administration</label>
+					</li>
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">HealthCare</span></a>
+						<ul class="pcoded-submenu">
+							<li><a href="hospital-dashboard.html">Dashboard</a></li>
+							<li><a href="hospital-department.html">Homecare</a></li>
+							<li><a href="hospital-doctor.html">Doctor</a></li>
+							<li><a href="hospital-patient.html">Patient</a></li>
+							<li><a href="hospital-nurse.html">Nurse</a></li>
+							<li><a href="hospital-Medicine.html">Devices</a></li>
+							<li><a href="hospital-vitals.html">Vitals</a></li>
+							<li><a href="hospital-diagnosis.html">Diagnosis</a></li>
+							<li><a href="eventDistributor.html">Event Distributor</a></li>
+						</ul>
+					</li>
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Application Tools</span></a>
+						<ul class="pcoded-submenu">
+							<li><a href="eventDistributor.html">Administrative Simulator</a></li><li><a href="#">Calendar</a></li>
+							<li><a href="#">Notifications</a></li>
+							<li><a href="#">Chat</a></li>
+							<li><a href="#">Alerts</a></li>
+						</ul>
+					</li>
+					<li class="nav-item pcoded-hasmenu">
+						<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-clipboard"></i></span><span class="pcoded-mtext">Task</span></a>
+						<ul class="pcoded-submenu">
+							<li><a href="task-list.html">List</a></li>
+							<li><a href="task-board.html">Board</a></li>
+							<li><a href="task-detail.html">Detail</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+				
+				<div class="card text-center">
+					<div class="card-block">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<i class="feather icon-sunset f-40"></i>
+						<h6 class="mt-3">Help?</h6>
+						<p>Please contact us on our email for need any support</p>
+						<a href="#!" target="_blank" class="btn btn-primary btn-sm text-white m-0">SiviSoft Support</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+	<!-- [ navigation menu ] end -->
+	<!-- [ Header ] start -->
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+		
+			
+				<div class="m-header">
+					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+					<a href="#!" class="b-brand">
+						<!-- ========   change your logo hear   ============ -->
+						<img src="assets/images/hLogo2.png" style="width:40px;height:40px" class="logo">
+						<img src="assets/images/health_logo2.png" style="width:120px;height:30px" alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</a>
+					<a href="#!" class="mob-toggler" style="margin-left:25px">
+						<i class="feather icon-more-vertical"></i>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
+							<div class="search-bar">
+								<input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
+								<button type="button" class="close" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</li>
+					</ul>
+					<ul class="navbar-nav ml-auto">
+						<li>
+							<div class="dropdown">
+								<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
+								<div class="dropdown-menu dropdown-menu-right notification">
+									<div class="noti-head">
+										<h6 class="d-inline-block m-b-0">Notifications</h6>
+										<div class="float-right">
+											<a href="#!" class="m-r-10">mark as read</a>
+											<a href="#!">clear all</a>
+										</div>
+									</div>
+									<ul class="noti-body">
+										<li class="n-title">
+											<p class="m-b-0">NEW</p>
+										</li>
+										<li class="notification">
+											<div class="media">
+												<img class="img-radius" src="assets/images/user/avatar-2.png" alt="Generic placeholder image">
+												<div class="media-body">
+													<p><strong>Balaji Modhagala</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+													<p>New ticket Added</p>
+												</div>
+											</div>
+										</li>
+										<li class="n-title">
+											<p class="m-b-0">EARLIER</p>
+										</li>
+										<li class="notification">
+											<div class="media">
+												<img class="img-radius" src="assets/images/user/RamK2.png" alt="Generic placeholder image">
+												<div class="media-body">
+													<p><strong>Ram Karuthapandian</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
+													<p>New TeleMetric Device added - Please verify and Approve</p>
+												</div>
+											</div>
+										</li>
+										<li class="notification">
+											<div class="media">
+												<img class="img-radius" src="assets/images/user/Saradha.png" alt="Generic placeholder image">
+												<div class="media-body">
+													<p><strong>Saradha K</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
+													<p>Updated Plano TX Homecare status</p>
+												</div>
+											</div>
+										</li>
+										<li class="notification">
+											<div class="media">
+												<img class="img-radius" src="assets/images/user/avatar-2.png" alt="Generic placeholder image">
+												<div class="media-body">
+													<p><strong>Balaji Modhagala</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+													<p>Team, lets activate new homecare and monitoring device</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<div class="noti-footer">
+										<a href="#!">show all</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="dropdown drp-user">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="feather icon-user"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right profile-notification">
+									<div class="pro-head">
+										<img src="assets/images/user/avatar-2.png" class="img-radius" alt="User-Profile-Image">
+										<span>Balaji Modhagala</span>
+										<a href="auth-signin.html" class="dud-logout" title="Logout">
+											<i class="feather icon-log-out"></i>
+										</a>
+									</div>
+									<ul class="pro-body">
+										<li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+										<li><a href="#" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+										<li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+			
+	</header>
+	<!-- [ Header ] end -->
+	
+	
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Hospital Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Hospital</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- customar project  start -->
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-user-injured f-36 text-c-red"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Patient</h6>
+                                <h2 class="m-b-0">368</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-user-md f-36 text-c-purple"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Doctor</h6>
+                                <h2 class="m-b-0">35</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-user-nurse f-36 text-c-green"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Nurse</h6>
+                                <h2 class="m-b-0">79</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-prescription-bottle-alt f-36 text-c-blue"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Homecare</h6>
+                                <h2 class="m-b-0">15</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-file-invoice-dollar f-36 text-c-red"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Devices</h6>
+                                <h2 class="m-b-0">155</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="fas fa-file-invoice-dollar f-36 text-c-purple"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Payments</h6>
+                                <h2 class="m-b-0">1585</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- customar project  end -->
+            <!-- subscribe start -->
+			<div class="col-xl-6 col-md-6">
+				<div class="card">
+				  <div class="card-header">
+					<h5 class="card-title pull-left">Events from Homecare</h5>
+				  </div>
+				  <div class="card-body">
+					<div class="worldmap" id="mapusawrap" style="width:100%;height:300px;"></div>
+				  </div>
+				</div>
+			  </div>
+            <div class="col-xl-6 col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-table text-c-green d-block f-40"></i>
+                        <h4 class="m-t-20 m-b-20"><span class="text-c-green">+40</span> Events Data Table</h4>
+                        <button class="btn btn-success btn-sm btn-round" data-toggle="modal" data-title="Death" data-target="#modal-report">View Report</button>
+                    </div>
+                    <div id="death-chart"></div>
+                </div>
+            </div>
+            <!-- subscribe end -->
+
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+<div class="modal fade" id="modal-report" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table id="report-table" class="table table-bordered table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Sex</th>
+                                <th>Birth Date</th>
+                                <th>Age</th>
+                                <th>Blood Group</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.png" class="img-radius" width="30px" height="30px"></td>
+                                <td>Saradha Kalanjiam</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.png" class="img-radius" width="30px" height="30px"></td>
+                                <td>Ram Karuthapandian</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-3.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Saradha Kalanjiam</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-4.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.png" class="img-radius" width="30px" height="30px"></td>
+                                <td>Saradha Kalanjiam</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.png" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-3.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Saradha Kalanjiam</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-4.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.png" class="img-radius" width="30px" height="30px"></td>
+                                <td>Saradha Kalanjiam</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-2.png" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-3.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Saradha Kalanjiam</td>
+                                <td>patient@example.com</td>
+                                <td>9876543</td>
+                                <td>female</td>
+                                <td>13/09/1994</td>
+                                <td>54</td>
+                                <td>o+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/images/user/avatar-4.jpg" class="img-radius" width="30px" height="30px"></td>
+                                <td>Joseph William</td>
+                                <td>Joseph@example.com</td>
+                                <td>1234567</td>
+                                <td>male</td>
+                                <td>09/10/1990</td>
+                                <td>27</td>
+                                <td>B+</td>
+                                <td>
+                                    <a href="#!" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="#!" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	
+	<script>
+		const usaStatesMap = ["US-AL", "US-AK", "US-AZ", "US-AR", "US-CA", "US-CO", "US-CT", "US-DE", "US-DC", "US-FL", "US-GA", "US-HI", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-ME", "US-MD", "US-MA", "US-MI", "US-MN", "US-MS", "US-MO", "US-MT", "US-NE", "US-NV", "US-NH", "US-NJ", "US-NM", "US-NY", "US-NC", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-SD", "US-TN", "US-TX", "US-UT", "US-VT", "US-VA", "US-WA", "US-WV", "US-WI", "US-WY"];
+	</script>
+
+    <!-- Required Js -->
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+	
+	<script src="assets/js/jquery-jvectormap-2.0.5.min.js"></script>
+	<script src="assets/js/jquery-jvectormap-us-aea.js"></script>
+    <script src="assets/js/ripple.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
+	<script src="assets/js/menu-setting.min.js"></script>
+
+	<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+	<script src="assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+	<!-- Apex Chart -->
+	<script src="assets/js/plugins/apexcharts.min.js"></script>
+
+
+<script>
+	//Maps start
+	$('#mapusawrap').vectorMap({map: 'us_aea',
+		regionStyle: {
+			initial: {
+			  fill: '#128da7'
+		}},
+		series: {
+			markers: [{
+			  attribute: 'fill',
+			  scale: ['#FEE5D9', '#A50F15']
+			},{
+			  attribute: 'r',
+			  scale: [5, 20]
+			}],
+			regions: [{
+			  scale: ['#DEEBF7', '#08519C'],
+			  attribute: 'fill', values: usaStatesMap
+			}]
+		  }
+		});
+	
+    // report model start
+    $('#modal-report').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('title')
+        var modal = $(this)
+        modal.find('.modal-title').text('Report of ' + recipient + ' on current month')
+    })
+    // report model end
+    // DataTable start
+    $('#report-table').DataTable();
+    // DataTable end
+    // [ operation-processed ] start
+    $(function() {
+        var options = {
+            chart: {
+                type: 'area',
+                height: 50,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: ["#4680ff"],
+            fill: {
+                type: 'solid',
+                opacity: 0.3,
+            },
+            markers: {
+                size: 3,
+                opacity: 0.9,
+                colors: "#fff",
+                strokeColor: "#4680ff",
+                strokeWidth: 2,
+                hover: {
+                    size: 7,
+                }
+            },
+            stroke: {
+                curve: 'straight',
+                width: 3,
+            },
+            series: [{
+                name: 'series1',
+                data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54, 25, 66, 41, 89, 63, 54, 25, 66, 41, 89]
+            }],
+            tooltip: {
+                fixed: {
+                    enabled: false
+                },
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function(seriesName) {
+                            return 'Operation '
+                        }
+                    }
+                },
+                marker: {
+                    show: false
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#operation-chart"), options);
+        chart.render();
+    });
+    // [ operation-processed ] end
+    // [ death-processed ] start
+    $(function() {
+        var options = {
+            chart: {
+                type: 'area',
+                height: 50,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: ["#9ccc65"],
+            fill: {
+                type: 'solid',
+                opacity: 0.3,
+            },
+            markers: {
+                size: 3,
+                opacity: 0.9,
+                colors: "#fff",
+                strokeColor: "#9ccc65",
+                strokeWidth: 2,
+                hover: {
+                    size: 7,
+                }
+            },
+            stroke: {
+                curve: 'straight',
+                width: 3,
+            },
+            series: [{
+                name: 'series1',
+                data: [9, 54, 25, 66, 41, 89, 63, 54, 25, 66, 41, 89, 63, 25, 44, 12, 36, 25, 66, 41, 89]
+            }],
+            tooltip: {
+                fixed: {
+                    enabled: false
+                },
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function(seriesName) {
+                            return 'Death '
+                        }
+                    }
+                },
+                marker: {
+                    show: false
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#death-chart"), options);
+        chart.render();
+    });
+    // [ death-processed ] end
+    // [ Birth-processed ] start
+    $(function() {
+        var options = {
+            chart: {
+                type: 'area',
+                height: 50,
+                sparkline: {
+                    enabled: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: ["#ff5252"],
+            fill: {
+                type: 'solid',
+                opacity: 0.3,
+            },
+            markers: {
+                size: 3,
+                opacity: 0.9,
+                colors: "#fff",
+                strokeColor: "#ff5252",
+                strokeWidth: 2,
+                hover: {
+                    size: 7,
+                }
+            },
+            stroke: {
+                curve: 'straight',
+                width: 3,
+            },
+            series: [{
+                name: 'series1',
+                data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54, 25, 66, 41, 89, 63, 54, 25, 66, 41, 89]
+            }],
+            tooltip: {
+                fixed: {
+                    enabled: false
+                },
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function(seriesName) {
+                            return 'Birth '
+                        }
+                    }
+                },
+                marker: {
+                    show: false
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#birth-chart"), options);
+        chart.render();
+    });
+    // [ Birth-processed ] end
+</script>
+
+
+</body>
+
+</html>

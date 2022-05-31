@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>Mat</title>
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/d3.js"></script>
+<link href="assets/css/main.css" type="text/css" rel="stylesheet">
+
+<script>
+	$(document).ready(function() {	
+		var mincolor = 1000, maxcolor = 3500;
+		var bt = ["LEFT","RIGHT","TOP","BOTTOM","PATIENT","NO_PATIENT"];
+		var min = 800; 
+		var result = "";
+		var k = 0, R = 0, C = 1, position;
+		setInterval(function(){
+		$.ajax({
+			url : '/healthDX/cds/event/mat',
+			type : 'GET',
+			contentType : 'text/plain',
+			success : function(data) {
+				
+				var res = data.replace(/"/g, "").split(",");   
+				$.each(res,function(key,value) {
+					var myColor = d3.scaleLinear().range(["white", "#ff0000"]).domain([1,100])
+					if (value <= 900){
+						value = 0;
+					}
+		    		$("#d"+key).html(value).css('background-color',myColor(value*100/1800));
+		    		if (k % 6 == 0) {
+						R = R + 1; // Row
+						C = 1; // Column
+					}
+					position = value;
+
+					if (R == 1) {
+						if (position > min) {
+							result = result + "TOP" + ",";
+						}
+					}
+					if (R == 8) {	
+						if (position > min) {
+							result = result + "BOTTOM" + ","; 
+						}
+					}
+					
+					if (C == 1) {
+						if (position > min) {
+							result = result + "LEFT" + ",";
+						}
+					}
+					if (C == 6) {
+						if (position > min) {
+							result = result + "RIGHT" + ",";
+						}
+					}
+					
+					if (position > min) { 
+							result = result + "PATIENT" + ","; 
+					}
+					
+					k = k + 1;
+					C = C + 1;
+					
+				});
+				if(result == "") {
+					result = "NO_PATIENT" + ",";  
+				}
+				
+				var List = result.split(',').filter(function(item,i,allItems){
+				    return i==allItems.indexOf(item);
+				});
+					
+				$.each(List,function(key,value) {
+					 $( "#"+value ).removeClass( "btn-white" ).addClass( "btn-red" );
+				});
+					
+			},
+			error : function(error) {
+			}
+			
+		});
+		}, 100);
+	});
+	
+</script>
+
+</head>
+<body>
+
+<div id="data">
+<h2 align="center" >Sleeping Mat</h2>
+<table style="border-collapse: collapse;border-style:hidden;" align="center" id="mytable" style="text-align:center;" >
+  <tbody >
+    <tr>
+      <td id="d0"></td>
+      <td id="d1"></td>
+	  <td id="d2"></td>
+	  <td id="d3"></td>
+	  <td id="d4"></td>
+      <td id="d5"></td>
+    </tr>
+	<tr>
+      <td id="d6"></td>
+      <td id="d7"></td>
+	  <td id="d8"></td>
+	  <td id="d9"></td>
+	  <td id="d10"></td>
+      <td id="d11"></td>
+    </tr>
+	<tr>
+      <td id="d12"></td>
+      <td id="d13"></td>
+	  <td id="d14"></td>
+	  <td id="d15"></td>
+	  <td id="d16"></td>
+      <td id="d17"></td>
+    </tr>
+	<tr>
+      <td id="d18"></td>
+      <td id="d19"></td>
+	  <td id="d20"></td>
+	  <td id="d21"></td>
+	  <td id="d22"></td>
+      <td id="d23"></td>
+    </tr>
+	<tr>
+      <td id="d24"></td>
+      <td id="d25"></td>
+	  <td id="d26"></td>
+	  <td id="d27"></td>
+	  <td id="d28"></td>
+      <td id="d29"></td>
+    </tr>
+    <tr>
+      <td id="d30"></td>
+      <td id="d31"></td>
+	  <td id="d32"></td>
+	  <td id="d33"></td>
+	  <td id="d34"></td>
+      <td id="d35"></td>
+    </tr>
+    <tr>
+      <td id="d36"></td>
+      <td id="d37"></td>
+	  <td id="d38"></td>
+	  <td id="d39"></td>
+	  <td id="d40"></td>
+      <td id="d41"></td>
+    </tr>
+    <tr>
+      <td id="d42"></td>
+      <td id="d43"></td>
+	  <td id="d44"></td>
+	  <td id="d45"></td>
+	  <td id="d46"></td>
+      <td id="d47"></td>
+    </tr>
+  </tbody>
+</table> 
+<!-- <button type="button" id ="TOP" class="btn">TOP</button>
+<button type="button" id ="BOTTOM"  class="btn">BOTTOM</button>
+<button type="button" id ="LEFT"  class="btn">LEFT</button>
+<button type="button" id ="RIGHT"  class="btn">RIGHT</button>
+<button type="button" id ="PATIENT"  class="btn">PATIENT ON BED</button>
+<button type="button" id ="NO_PATIENT"  class="btn">NO PATIENT ON BED</button> -->
+</div>
+<div>
+
+</div>
+</body>
+</html>
