@@ -1,0 +1,31 @@
+<div class="row">
+	<script>
+	jui.ready([ "ui.property" ], function(PropertyView) {
+		var response = $.ajax({ type: "GET",   
+							url: "/healthDX/cds/properties",   
+							async: false, dataType : "text"
+						  }).responseText;
+		
+		console.log(response);
+		window.prSettings = new PropertyView('#pr-settings', JSON.parse(response));
+
+	});
+	</script>
+	<div class="col-12 col-lg-8 col-xxl-12 d-flex">
+		<div class="card flex-fill jui jennifer">
+			<div class="card-header">
+				<div class="card-actions float-right">
+					<a href="#" class="mr-1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw align-middle">
+							<polyline points="23 4 23 10 17 10"></polyline>
+							<polyline points="1 20 1 14 7 14"></polyline>
+							<path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+						</svg>
+					</a>
+				</div>
+				<h5 class="card-title mb-0">Presentation Settings</h5>
+			</div>
+			<div id="pr-settings" class="property"></div>
+		</div>
+	</div>
+</div>
